@@ -4,18 +4,13 @@ import dynamic from "next/dynamic";
 import Top from "../components/Top";
 import InfoContainer from "../components/InfoContainer";
 
-const dev = process.env.NODE_ENV !== "production";
-const server = dev
-  ? "http://localhost:3000"
-  : "https://ip-adress-tracker-omega.vercel.app";
-
 export default function App() {
   const Map = dynamic(() => import("../components/Map"), { ssr: false });
   const [ipData, setIpData] = React.useState("");
   const [initialIp, setInitialIp] = React.useState(null);
 
   React.useEffect(async () => {
-    const data = await fetch(`${server}/api/getIp`);
+    const data = await fetch(`api/getIp`);
     const ip = await data.json();
     try {
       setInitialIp(ip.ip);
@@ -35,8 +30,8 @@ export default function App() {
       }
     }
   }, [initialIp]);
-  console.log(initialIp)
-  
+  console.log(initialIp);
+
   const updateData = (data) => {
     setIpData(data);
   };
