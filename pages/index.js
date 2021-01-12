@@ -10,26 +10,32 @@ const server = dev
   : "https://ip-adress-tracker-omega.vercel.app";
 
 export default function App() {
-
   const Map = dynamic(() => import("../components/Map"), { ssr: false });
-
+  const [ipData, setIpData] = React.useState("");
   const [initialIp, setInitialIp] = React.useState(null);
+
   React.useEffect(async () => {
     const data = await fetch(`${server}/api/getIp`);
     const ip = await data.json();
-    setInitialIp(ip.ip);
+    try {
+      setInitialIp(ip.ip);
+    } catch (err) {
+      console.log(err);
+    }
   }, []);
 
-  const [ipData, setIpData] = React.useState("");
-  React.useEffect(() => {
-    fetch(`api/getData/${initialIp}`)
-      .then(res => res.json())
-      .then(json => {
-        setIpData(json)
-      })
-      .catch(err => console.log(err))
-  }, [initialIp])
-  
+  React.useEffect(async () => {
+    if (initialIp) {
+      const data = await fetch(`api/getData/${initialIp}`);
+      const json = await data.json();
+      try {
+        setIpData(json);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  }, [initialIp]);
+
   const updateData = (data) => {
     setIpData(data);
   };
