@@ -2,3 +2,9 @@
   display: flex;
   width: 35%;
 }
+@media screen and (max-width: 800px) {
+  .container {
+    display: flex;
+    width: 60%;
+  }
+}

@@ -12,6 +12,7 @@
   display: flex;
   padding: 15px;
 }
+
 .info {
   width: 25%;
   display: flex;
@@ -33,4 +34,20 @@
   font-family: sans-serif;
   font-size: 20px;
   font-weight: 600;
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    flex-direction: column;
+    height: fit-content;
+    width: fit-content;
+    text-align: center;
+  }
+  .info {
+    padding: 0;
+    width: 100%;
+  }
+  .vl {
+    display: none;
+  }
 }
