@@ -10,11 +10,11 @@ export default function App() {
   const [ipData, setIpData] = React.useState("");
   const updateData = (data) => {
     setIpData(data);
-  }
+  };
   return (
     <Layout>
       <Top updateData={updateData} />
-      <InfoContainer />
+      <InfoContainer data={ipData} />
       <Map data={ipData} />
     </Layout>
   );
