@@ -2,3 +2,8 @@
   height: 65vh;
   width: 100%;
 }
+@media screen and (max-width: 800px) {
+  .container {
+    height: 55vh;
+  }
+}

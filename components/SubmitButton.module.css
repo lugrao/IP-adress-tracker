@@ -1,13 +1,10 @@
 .button {
   height: 55px;
   background-color: black;
-  border: 0;
   width: 50px;
   margin-left: -45px;
   border-radius: 0 10px 10px 0;
   cursor: pointer;
-}
-.button:active {
   outline: none;
   border: none;
 }

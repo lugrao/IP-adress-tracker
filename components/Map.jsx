@@ -31,12 +31,10 @@ const Map = ({ data }) => {
       zoom={13}
       scrollWheelZoom={false}
       className={styles.container}
+      zoomControl={false}
     >
       <ChangeView center={position} zoom={13} />
-      <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
+      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       <Marker position={position}>
         <Popup>
           A pretty CSS3 popup. <br /> Easily customizable.
