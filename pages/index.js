@@ -9,7 +9,6 @@ export default function App() {
 
   const [ipData, setIpData] = React.useState("");
   const updateData = (data) => {
-    console.log(data);
     setIpData(data);
   }
   return (
