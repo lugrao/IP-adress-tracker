@@ -1,11 +1,11 @@
-import Input from "./Input";
+import SearchBar from "./SearchBar";
 import styles from "./Top.module.css";
 
 const Top = () => {
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>IP Adress Tracker</h1>
-      <Input />
+      <h1 className={styles.title}>IP Address Tracker</h1>
+      <SearchBar />
     </div>
   );
 };
