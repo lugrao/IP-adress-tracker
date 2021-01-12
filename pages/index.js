@@ -35,7 +35,8 @@ export default function App() {
       }
     }
   }, [initialIp]);
-
+  console.log(initialIp)
+  
   const updateData = (data) => {
     setIpData(data);
   };

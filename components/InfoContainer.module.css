@@ -41,6 +41,7 @@
     height: fit-content;
     width: fit-content;
     text-align: center;
+    min-width: 70%;
   }
   .info {
     padding: 0;
