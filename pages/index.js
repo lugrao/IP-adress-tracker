@@ -14,14 +14,9 @@ export default function App() {
   }
   return (
     <Layout>
-<<<<<<< HEAD
       <Top updateData={updateData} />
-      <Map data={ipData} />
-=======
-      <Top />
       <InfoContainer />
-      <Map />
->>>>>>> 0c4cc9af2e586d7326bc81a411d22c9eff1c5ce9
+      <Map data={ipData} />
     </Layout>
   );
 }
