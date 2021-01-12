@@ -10,17 +10,27 @@ function ChangeView({ center, zoom }) {
     return null;
 }
 
-const Map = ({ data }) => {
-    
+const Map = ({ data, initialIp }) => {
+
     const [ipData, setIpData] = React.useState({
         location: {
-            lat: 55,
-            lng: 55
+            lat: 0,
+            lng: 0
         }
     });
 
     React.useEffect(() => {
-        if (data) setIpData(data);
+        if (data) {
+            setIpData(data)
+        } else {
+            fetch(`api/getData/${initialIp}`)
+                .then(res => res.json())
+                .then(json => {
+                    console.log(json)
+                    setIpData(json)
+                })
+                .catch(err => console.log(err))
+        };
     }, [data]);
 
     const position = [ipData.location.lat, ipData.location.lng]

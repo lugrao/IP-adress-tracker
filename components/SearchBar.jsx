@@ -2,7 +2,7 @@ import Input from "./Input";
 import SubmitButton from "./SubmitButton";
 import styles from "./SearchBar.module.css";
 
-const SearchBar = ({ updateData }) => {
+const SearchBar = ({ updateData, initialIp }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,7 +19,7 @@ const SearchBar = ({ updateData }) => {
 
   return (
     <form className={styles.container} onSubmit={handleSubmit}>
-      <Input />
+      <Input initialIp={initialIp}/>
       <SubmitButton />
     </form>
 
