@@ -13,7 +13,7 @@ export default function App() {
 
   const Map = dynamic(() => import("../components/Map"), { ssr: false });
 
-  const [initialIp, setInitialIp] = React.useState(null);
+  const [initialIp, setInitialIp] = React.useState("");
   React.useEffect(async () => {
     const data = await fetch(`${server}/api/getIp`);
     const ip = await data.json();
@@ -22,14 +22,19 @@ export default function App() {
 
   const [ipData, setIpData] = React.useState("");
   React.useEffect(() => {
-    fetch(`api/getData/${initialIp}`)
-      .then(res => res.json())
-      .then(json => {
-        setIpData(json)
-      })
-      .catch(err => console.log(err))
+    if (initialIp) {
+      fetch(`api/getData/${initialIp}`)
+        .then(res => res.json())
+        .then(json => {
+          setIpData(json)
+        })
+        .catch(err => console.log(err))
+    }
   }, [initialIp])
   
+  console.log(ipData)
+  console.log(Boolean(initialIp))
+
   const updateData = (data) => {
     setIpData(data);
   };
@@ -38,7 +43,7 @@ export default function App() {
     <Layout>
       <Top updateData={updateData} />
       <InfoContainer data={ipData} />
-      <Map data={ipData} initialIp={initialIp} />
+      <Map data={ipData} />
     </Layout>
   );
 }
