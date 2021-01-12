@@ -9,6 +9,12 @@
 }
 .title {
   color: white;
-  font-family: sans-serif;
+  font-family: "Rubik", sans-serif;
   text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    height: 45vh;
+  }
 }

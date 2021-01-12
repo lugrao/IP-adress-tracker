@@ -1,10 +1,9 @@
 .container {
-  display: flex;
-  width: 35%;
+  height: 65vh;
+  width: 100%;
 }
 @media screen and (max-width: 800px) {
   .container {
-    display: flex;
-    width: 60%;
+    height: 55vh;
   }
 }
