@@ -1,3 +1,4 @@
+import InfoContainer from "./InfoContainer";
 import SearchBar from "./SearchBar";
 import styles from "./Top.module.css";
 
