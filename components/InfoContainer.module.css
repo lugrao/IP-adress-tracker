@@ -39,9 +39,9 @@
   .container {
     flex-direction: column;
     height: fit-content;
-    width: fit-content;
     text-align: center;
     min-width: 70%;
+    min-height: 37%;
   }
   .info {
     padding: 0;
