@@ -6,10 +6,15 @@ import Top from "../components/Top";
 export default function App() {
   const Map = dynamic(() => import("../components/Map"), { ssr: false });
 
+  const [ipData, setIpData] = React.useState("");
+  const updateData = (data) => {
+    console.log(data);
+    setIpData(data);
+  }
   return (
     <Layout>
-      <Top />
-      <Map />
+      <Top updateData={updateData} />
+      <Map data={ipData} />
     </Layout>
   );
 }

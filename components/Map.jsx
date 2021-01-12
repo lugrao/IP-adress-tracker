@@ -1,12 +1,25 @@
+import React from "react";
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import "leaflet-defaulticon-compatibility"
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css'
 
 
-const Map = () => {
+const Map = ({ data }) => {
+    const [ipData, setIpData] = React.useState({
+        location: {
+            lat: 55,
+            lng: 55
+        }
+    });
     
-    const position = [-34.61315, -58.37723]
+    console.log(ipData.location);
+
+    // React.useEffect(() => {
+    //     setIpData(data);
+    // }, [data])
+
+    const position = [55, 55]
     return (
         <MapContainer
             center={position}
