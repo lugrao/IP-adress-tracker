@@ -1,10 +1,29 @@
-import Layout from "../components/Layout"
+import Layout from "../components/Layout";
+import React from "react";
+
+const dev = process.env.NODE_ENV !== "production";
+
+export const server = dev
+  ? "http://localhost:3000"
+  : "https://ip-adress-tracker-omega.vercel.app";
 
 export default function App() {
-    return (
-        <Layout>
-            <h1>buenas</h1>
-            <p>qué tal</p>
-        </Layout>
-    )
+  React.useEffect(async () => {
+    const data = await fetch(`${server}/api/getIp`);
+    const ip = await data.json();
+    setInput(ip.ip);
+  }, []);
+
+  const [input, setInput] = React.useState("Cargando...");
+  const handleInput = (e) => {
+    setInput(e.target.value);
+  };
+
+  return (
+    <Layout>
+      <h1>buenas</h1>
+      <p>{input}</p>
+      <input type="text" onChange={handleInput} value={input}></input>
+    </Layout>
+  );
 }
